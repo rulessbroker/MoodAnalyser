@@ -1,14 +1,21 @@
 package com.bridgeblz.moodanalyser;
 
-import static org.junit.jupiter.api.Assertions.*;
-
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-class MoodAnalyserTest {
+public class MoodAnalyserTest {
+	@Test
+	void givenSadMessage_ShouldReturnSAD() {
+		MoodAnalyser moodAnalyser = new MoodAnalyser("I am in sad mood");
+		String mood = moodAnalyser.analyseMood();
+		Assertions.assertEquals("SAD", mood);
+	}
 
 	@Test
-	void test() {
-		fail("Not yet implemented");
+	void givenAnyMessage_ShouldReturnHAPPY() {
+		MoodAnalyser moodAnalyser = new MoodAnalyser("I am in any mood");
+		String mood = moodAnalyser.analyseMood();
+		Assertions.assertEquals("HAPPY", mood);
 	}
 
 }
