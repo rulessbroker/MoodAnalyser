@@ -1,6 +1,10 @@
 package com.bridgeblz.moodanalyser;
 
 public class MoodAnalyser {
+	enum Mood {
+		SAD, HAPPY
+	}
+
 	String message;
 
 	public MoodAnalyser() {
@@ -10,14 +14,14 @@ public class MoodAnalyser {
 		this.message = message;
 	}
 
-	public String analyseMood() {
+	public Mood analyseMood() throws MoodAnalysisException {
 		try {
 			if (this.message.contains("sad")) {
-				return "SAD";
+				return Mood.SAD;
 			} else
-				return "HAPPY";
+				return Mood.HAPPY;
 		} catch (NullPointerException e) {
-			return "HAPPY";
+			throw new MoodAnalysisException("Mood is EMPTY");
 		}
 	}
 }
